@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 :root {
   --purple: #8b5cf6;
   --yellow: #facc15;
@@ -12,9 +14,31 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: var(--gray);
+  font-family: 'Poppins', sans-serif;
+  background: white;
   color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* NAV */
@@ -22,8 +46,13 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
-  background: var(--white);
-  border-bottom: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s ease-out;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -42,6 +71,7 @@ body {
 .hero {
   text-align: center;
   padding: 60px 20px;
+  animation: slideUp 1s ease-out 0.5s both;
 }
 
 .btn-primary {
@@ -84,6 +114,7 @@ body {
 /* ARTICLES */
 .articles {
   padding: 30px 40px;
+  animation: slideUp 1s ease-out 1.5s both;
 }
 
 .article-list {
@@ -110,10 +141,42 @@ body {
   cursor: pointer;
 }
 
+/* CONTACT */
+.contact {
+  padding: 40px;
+  text-align: center;
+  background: var(--gray);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background: var(--white);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-5px);
+}
+
 /* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
   background: var(--white);
+  animation: fadeIn 1s ease-out 2s both;
 }
