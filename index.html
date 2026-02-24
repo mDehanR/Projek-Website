@@ -3,82 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tingkat In - Tingkat In Skillmu</title>
+  <title>LastGrade - Selamat Datang</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      padding-top: 0 !important;
+      margin: 0;
+    }
+    
+    .landing-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .math-orb {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .math-orb-top-left {
+      width: 500px;
+      height: 500px;
+      top: -180px;
+      left: -180px;
+      opacity: 0.15;
+      font-size: 120px;
+      padding: 35px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .math-orb-bottom-right {
+      width: 450px;
+      height: 450px;
+      bottom: -120px;
+      right: -120px;
+      animation-delay: -3s;
+      opacity: 0.12;
+      font-size: 100px;
+      padding: 35px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .welcome-message {
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 15px;
+      text-align: center;
+      animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      opacity: 0;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .welcome-message::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      animation: lineExpand 1s ease-out 0.8s forwards;
+    }
+
+    @keyframes lineExpand {
+      to { width: 80%; }
+    }
+
+    .welcome-subtitle {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 50px;
+      opacity: 0;
+      text-align: center;
+      animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s forwards;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .landing-btn {
+      padding: 18px 50px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+
+    .landing-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .landing-btn:hover::before {
+      left: 100%;
+    }
+
+    .landing-btn:active {
+      transform: translateY(-2px) scale(0.98);
+    }
+
+    .btn-tamu {
+      background: linear-gradient(135deg, #22c55e, #3b82f6);
+      color: white;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+      animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s forwards;
+    }
+
+    .btn-tamu:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4), 0 4px 20px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-login {
+      background: linear-gradient(135deg, #22c55e, #3b82f6);
+      color: white;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+      animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s forwards;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4), 0 4px 20px rgba(34, 197, 94, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">Tingkat In</div>
-    <ul class="nav-links">
-      <li><a href="#hero">Beranda</a></li>
-      <li><a href="#categories">Kategori</a></li>
-      <li><a href="#articles">Artikel</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <h1>Bosen segitu aja? Tingkat In aja</h1>
-    <p>Tips, Skill, dan Insight kecil yang bikin kamu jadi lebih baik setiap hari.</p>
-    <button class="btn-primary" onclick="scrollToCategories()">Mulai Jelajah</button>
-  </section>
-
-  <!-- KATEGORI -->
-  <section class="categories" id="categories">
-    <h2>Kategori</h2>
-    <div class="category-grid">
-      <div class="cat-card s1">📚 Study Hacks</div>
-      <div class="cat-card s2">💻 Skill Digital</div>
-      <div class="cat-card s3">🎯 Target Harian</div>
-      <div class="cat-card s4">💰 Cuan & LifeStyle</div>
-      <div class="cat-card s5">🧠 Mindset</div>
-      <div class="cat-card s6">🎮 Game</div>
+  <div class="landing-container">
+    <div class="math-orb math-orb-top-left">
+      φ + π<br><br>
+      × ÷ %<br><br>
+      = ≠ <<br><br>
+      ± ∞ √
     </div>
-  </section>
-
-  <!-- ARTIKEL -->
-  <section class="articles" id="articles">
-    <h2>Artikel Terbaru</h2>
-    <div class="article-list">
-      <div class="article-card">
-        <h3>Cara Belajar 30 Menit Lebih Efektif</h3>
-        <p>Teknik simpel tapi ngebantu buat yang males belajar tapi pengen hasil...</p>
-        <button class="read-btn">Baca</button>
-      </div>
-      <div class="article-card">
-        <h3>5 App Gratis Buat Ngerjain Tugas</h3>
-        <p>List app yang bikin ngerjain tugas jadi lebih cepat dan rapi.</p>
-        <button class="read-btn">Baca</button>
-      </div>
-      <div class="article-card">
-        <h3>Pilih Jurusan Kuliah: Tips Anti Bingung</h3>
-        <p>Buat kamu yang masih ragu-ragu soal masa depan.</p>
-        <button class="read-btn">Baca</button>
-      </div>
+    
+    <div class="math-orb math-orb-bottom-right">
+      f(x)<br><br>
+      ∑ ∏<br><br>
+      ∫ ∂<br><br>
+      α β γ
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <h2>Hubungi Kami</h2>
-    <div class="contact-links">
-      <a href="https://instagram.com/mdhnr19" target="_blank" class="contact-link">
-        <i class="fab fa-instagram"></i> @mdhnr19
-      </a>
-      <a href="https://wa.me/6285795819828" target="_blank" class="contact-link">
-        <i class="fab fa-whatsapp"></i> +62-857-9581-9828
-      </a>
+    
+    <div class="welcome-message">Selamat Datang di LastGrade</div>
+    <div class="welcome-subtitle">Web Kalkulator Nilai Terbaru Untuk Siswa dan Guru</div>
+    
+    <div class="button-group">
+      <a href="login.html" class="landing-btn btn-login">Login Kan Le</a>
+      <a href="guest_dashboard.html" class="landing-btn btn-tamu">Masuk sebagai Tamu</a>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 TingkatIn — Tingkat In Skillmu</p>
-  </footer>
-  <script src="script.js"></script>
+  </div>
 </body>
-</html
+</html>

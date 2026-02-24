@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - LastGrade</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Enhanced Login Page Styles */
+    body {
+      background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
+      min-height: 100vh;
+    }
+
+    .logo {
+      color: white;
+    }
+
+    .login-section {
+      min-height: calc(100vh - 200px);
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      /* Initial state for animation */
+      opacity: 0;
+      transform: translateY(30px);
+      animation: formSlideUp 0.8s ease-out forwards;
+    }
+
+    @keyframes formSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-container h2 {
+      color: #1f1f1f;
+      font-size: 28px;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.3s forwards;
+    }
+
+    .form-container > p {
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.4s forwards;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .form-group:nth-child(1) {
+      animation: slideInLeft 0.5s ease-out 0.5s forwards;
+    }
+
+    .form-group:nth-child(2) {
+      animation: slideInLeft 0.5s ease-out 0.6s forwards;
+    }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #1f1f1f;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      background: #f9f9f9;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .form-group input::placeholder {
+      color: #999;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #ffffff, #f0f0f0);
+      color: #22c55e;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.7s forwards;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4), 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+
+    .switch-form {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.8s forwards;
+    }
+
+    .switch-form a {
+      color: #22c55e;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .switch-form a:hover {
+      color: #3b82f6;
+      text-decoration: underline;
+    }
+
+    footer {
+      background: transparent;
+      color: white;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.9s forwards;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    /* Background decoration */
+    .bg-decoration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .bg-decoration::before,
+    .bg-decoration::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+
+    .bg-decoration::before {
+      width: 400px;
+      height: 400px;
+      background: white;
+      top: -100px;
+      right: -100px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .bg-decoration::after {
+      width: 300px;
+      height: 300px;
+      background: white;
+      bottom: -50px;
+      left: -50px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, 30px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Back Button Styles */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 0.9s forwards;
+    }
+
+    .back-btn:hover {
+      background: #e0e0e0;
+      color: #333;
+      transform: translateX(-3px);
+    }
+
+    .back-btn i {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Decoration -->
+  <div class="bg-decoration"></div>
+
+  <!-- LOGIN FORM -->
+  <section class="login-section">
+    <div class="form-container">
+      <h2>Selamat Datang Kembali</h2>
+      <p style="color: #666; margin-bottom: 30px;">Masukkan email dan password untuk masuk</p>
+      <form class="login-form" action="login.php" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit" class="btn-primary">Masuk Sekarang</button>
+      </form>
+      <p class="switch-form">Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+      <a href="index.html" class="back-btn" title="Kembali ke Beranda">
+        <i class="fas fa-arrow-left"></i> Kembali ke Halaman Utama
+      </a>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
