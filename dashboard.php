@@ -13,6 +13,105 @@ if (!isset($_SESSION['user_id'])) {
 <title>Dashboard - LastGrade</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .calculator-container {
+        padding: 30px 20px;
+      }
+
+      .calculator-container h1 {
+        font-size: 24px;
+      }
+
+      .calculator-desc {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .calculator-section {
+        padding: 20px 15px;
+      }
+
+      .calculator-container {
+        padding: 20px 15px;
+        border-radius: 12px;
+      }
+
+      .calculator-container h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .calculator-desc {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .calculator-form .form-group {
+        margin-bottom: 15px;
+      }
+
+      .calculator-form label {
+        font-size: 13px;
+      }
+
+      .calculator-form input {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      .calculator-form .btn-primary {
+        padding: 14px;
+        font-size: 15px;
+      }
+
+      .result-container {
+        padding: 25px 15px;
+        border-radius: 12px;
+      }
+
+      .result-container h2 {
+        font-size: 18px;
+      }
+
+      .result-container .final-grade {
+        font-size: 32px;
+      }
+
+      .result-container .grade-info {
+        font-size: 16px;
+      }
+
+      .chart-container {
+        padding: 20px 15px;
+        border-radius: 12px;
+      }
+
+      .chart-container h2 {
+        font-size: 18px;
+      }
+
+      .line-chart-wrapper {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .calculator-container h1 {
+        font-size: 18px;
+      }
+
+      .result-container .final-grade {
+        font-size: 28px;
+      }
+
+      .result-container .grade-info {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 

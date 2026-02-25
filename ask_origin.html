@@ -19,6 +19,8 @@
       align-items: center;
       justify-content: center;
       z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .modal-content {
@@ -27,7 +29,7 @@
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       max-width: 450px;
-      width: 90%;
+      width: 100%;
       text-align: center;
       animation: modalSlideUp 0.5s ease-out;
     }
@@ -172,6 +174,127 @@
 
     .btn-role i {
       font-size: 40px;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 30px 25px;
+      }
+
+      .modal-icon {
+        width: 70px;
+        height: 70px;
+      }
+
+      .modal-icon i {
+        font-size: 30px;
+      }
+
+      .modal-title {
+        font-size: 22px;
+      }
+
+      .modal-subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+      }
+
+      .role-buttons {
+        gap: 12px;
+      }
+
+      .btn-role {
+        padding: 15px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+
+      .btn-role i {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-overlay {
+        padding: 15px;
+      }
+
+      .modal-content {
+        padding: 25px 18px;
+        border-radius: 16px;
+      }
+
+      .modal-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+      }
+
+      .modal-icon i {
+        font-size: 26px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      .modal-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .role-buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 15px;
+      }
+
+      .btn-role {
+        padding: 18px 15px;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 15px;
+        border-radius: 12px;
+      }
+
+      .btn-role i {
+        font-size: 28px;
+      }
+
+      .btn-continue {
+        padding: 14px;
+        font-size: 15px;
+        border-radius: 10px;
+      }
+
+      .btn-skip {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .modal-content {
+        padding: 20px 15px;
+      }
+
+      .modal-title {
+        font-size: 18px;
+      }
+
+      .modal-subtitle {
+        font-size: 13px;
+      }
+
+      .btn-role {
+        padding: 15px 12px;
+        font-size: 14px;
+      }
+
+      .btn-role i {
+        font-size: 24px;
+      }
     }
   </style>
 </head>

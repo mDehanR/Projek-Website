@@ -111,6 +111,8 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      width: 100%;
+      max-width: 280px;
     }
 
     .landing-btn {
@@ -126,6 +128,8 @@
       overflow: hidden;
       transition: all 0.3s ease;
       opacity: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .landing-btn::before {
@@ -174,6 +178,108 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px) scale(0.95); }
       to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .welcome-message {
+        font-size: 32px;
+      }
+      
+      .welcome-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+      
+      .math-orb-top-left {
+        width: 280px;
+        height: 280px;
+        top: -80px;
+        left: -80px;
+        font-size: 60px;
+        padding: 20px;
+        opacity: 0.1;
+      }
+      
+      .math-orb-bottom-right {
+        width: 250px;
+        height: 250px;
+        bottom: -60px;
+        right: -60px;
+        font-size: 50px;
+        padding: 20px;
+        opacity: 0.08;
+      }
+      
+      .button-group {
+        gap: 15px;
+      }
+      
+      .landing-btn {
+        padding: 16px 40px;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-message {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+      
+      .welcome-subtitle {
+        font-size: 14px;
+        margin-bottom: 35px;
+        padding: 0 10px;
+      }
+      
+      .math-orb-top-left {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        left: -50px;
+        font-size: 40px;
+        padding: 15px;
+      }
+      
+      .math-orb-bottom-right {
+        width: 180px;
+        height: 180px;
+        bottom: -40px;
+        right: -40px;
+        font-size: 35px;
+        padding: 15px;
+      }
+      
+      .button-group {
+        gap: 12px;
+        max-width: 250px;
+      }
+      
+      .landing-btn {
+        padding: 14px 30px;
+        font-size: 14px;
+        border-radius: 40px;
+      }
+      
+      .landing-container {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .welcome-message {
+        font-size: 22px;
+      }
+      
+      .welcome-subtitle {
+        font-size: 13px;
+      }
+      
+      .landing-btn {
+        padding: 12px 25px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>

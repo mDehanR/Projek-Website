@@ -548,7 +548,7 @@ footer {
   color: #666;
 }
 
-/* Responsive */
+/* Responsive - Tablet */
 @media (max-width: 768px) {
   .calculator-wrapper {
     flex-direction: column;
@@ -557,5 +557,231 @@ footer {
   .calculator-wrapper .calculator-container,
   .chart-container {
     min-width: 100%;
+  }
+  
+  .form-container {
+    padding: 30px 20px;
+  }
+  
+  .welcome-message {
+    font-size: 32px;
+  }
+  
+  .welcome-subtitle {
+    font-size: 16px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    padding: 8px 15px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+  }
+  
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  
+  /* Body */
+  body {
+    padding-top: 50px;
+  }
+  
+  /* Form Container */
+  .form-container {
+    padding: 25px 15px;
+    border-radius: 16px;
+  }
+  
+  .form-container h2 {
+    font-size: 24px;
+  }
+  
+  /* Form Groups */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  
+  /* Calculator */
+  .calculator-section {
+    padding: 20px 15px;
+    min-height: auto;
+  }
+  
+  .calculator-container {
+    padding: 25px 15px;
+  }
+  
+  .calculator-container h1 {
+    font-size: 22px;
+  }
+  
+  .calculator-desc {
+    font-size: 13px;
+  }
+  
+  .calculator-form input {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .calculator-form .btn-primary {
+    padding: 14px;
+    font-size: 15px;
+  }
+  
+  /* Result Section */
+  .result-section {
+    padding: 25px 15px;
+  }
+  
+  .result-container {
+    padding: 25px 15px;
+  }
+  
+  .result-container h2 {
+    font-size: 20px;
+  }
+  
+  .result-container .final-grade {
+    font-size: 36px;
+  }
+  
+  .result-container .grade-info {
+    font-size: 16px;
+  }
+  
+  /* Chart Section */
+  .chart-section {
+    padding: 25px 15px;
+  }
+  
+  .chart-container {
+    padding: 20px 15px;
+  }
+  
+  .chart-container h2 {
+    font-size: 18px;
+  }
+  
+  .line-chart-wrapper {
+    height: 200px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 15px;
+    font-size: 13px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 40px 15px;
+  }
+  
+  /* Contact */
+  .contact {
+    padding: 30px 15px;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-link {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  /* Modal */
+  .modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+  }
+  
+  .close-btn {
+    font-size: 24px;
+  }
+  
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+  .welcome-message {
+    font-size: 26px;
+  }
+  
+  .welcome-subtitle {
+    font-size: 14px;
+  }
+  
+  .button-group {
+    gap: 15px;
+  }
+  
+  .landing-btn {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .btn-primary,
+  .btn-secondary,
+  .landing-btn,
+  .btn-login,
+  .contact-link {
+    min-height: 44px;
+  }
+  
+  input[type="number"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    min-height: 44px;
+  }
+  
+  /* Remove hover effects that can get stuck on touch */
+  .landing-btn:hover,
+  .btn-login:hover,
+  .contact-link:hover {
+    transform: none;
   }
 }
