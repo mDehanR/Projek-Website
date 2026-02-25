@@ -260,6 +260,8 @@ if (!isset($_SESSION['user_id'])) {
         lineChart.destroy();
       }
       
+      const isMobile = window.innerWidth <= 480;
+      
       lineChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -271,13 +273,20 @@ if (!isset($_SESSION['user_id'])) {
               borderColor: '#22c55e',
               backgroundColor: 'rgba(34, 197, 94, 0.1)',
               tension: 0.4,
-              fill: true
+              fill: true,
+              pointRadius: isMobile ? 4 : 6,
+              pointHoverRadius: isMobile ? 6 : 8,
+              borderWidth: isMobile ? 2 : 3
             }
           ]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
           scales: {
             y: {
               beginAtZero: true,
@@ -285,13 +294,44 @@ if (!isset($_SESSION['user_id'])) {
               ticks: {
                 callback: function(value) {
                   return value + '%';
+                },
+                stepSize: 20,
+                font: {
+                  size: isMobile ? 10 : 12
                 }
+              },
+              grid: {
+                display: true,
+                drawBorder: false,
+                color: 'rgba(0,0,0,0.05)'
+              }
+            },
+            x: {
+              ticks: {
+                font: {
+                  size: isMobile ? 10 : 12
+                }
+              },
+              grid: {
+                display: false
               }
             }
           },
           plugins: {
             legend: {
               display: false
+            },
+            tooltip: {
+              enabled: true,
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              titleFont: {
+                size: isMobile ? 12 : 14
+              },
+              bodyFont: {
+                size: isMobile ? 11 : 13
+              },
+              padding: isMobile ? 8 : 12,
+              cornerRadius: isMobile ? 4 : 8
             }
           }
         }

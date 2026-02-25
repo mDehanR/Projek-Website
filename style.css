@@ -680,21 +680,44 @@ footer {
     font-size: 16px;
   }
   
-  /* Chart Section */
+  /* Chart Section - FIXED for mobile */
   .chart-section {
-    padding: 25px 15px;
+    padding: 20px 12px;
+    overflow-x: hidden;
   }
   
   .chart-container {
-    padding: 20px 15px;
+    padding: 15px 12px;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0 auto;
   }
   
   .chart-container h2 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 12px;
   }
   
   .line-chart-wrapper {
-    height: 200px;
+    height: 160px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .line-chart-wrapper canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  .chart-legend {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .legend-item {
+    font-size: 11px;
   }
   
   /* Footer */
